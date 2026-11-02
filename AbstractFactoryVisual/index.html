@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Abstract Factory: demonstração interativa</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500&family=IBM+Plex+Sans:wght@400;500;600;700&display=swap">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="wrap">
+  <h1>Abstract Factory na prática</h1>
+  <p class="lead">Escolha uma família de componentes e execute a aplicação. A classe <code>Aplicacao</code> nunca muda: só a fábrica entregue a ela.</p>
+
+  <div class="panel">
+    <h2>1. Escolha a fábrica</h2>
+    <div class="families" id="families" role="group" aria-label="Famílias de componentes"></div>
+  </div>
+
+  <div class="grid">
+    <div class="stage">
+      <div class="panel">
+        <h2>Matriz de famílias</h2>
+        <table class="matrix" id="matrix"></table>
+        <p class="note">Cada fábrica é dona de uma linha inteira, então nunca se mistura um botão Windows com um checkbox Mac.</p>
+      </div>
+      <div class="panel">
+        <h2>Código do Main</h2>
+        <pre id="code"></pre>
+      </div>
+    </div>
+    <div class="stage">
+      <div class="panel">
+        <h2>Resultado visual</h2>
+        <div class="preview" id="preview" data-f="windows">
+          <button class="demo-btn" id="demoBtn" type="button">Salvar</button>
+          <button class="demo-check" id="demoCheck" type="button" role="checkbox" aria-checked="true"><span class="box"></span><span>Lembrar de mim</span></button>
+        </div>
+      </div>
+      <div class="panel">
+        <h2>Saída no console</h2>
+        <button class="btn" id="run" style="margin:0 0 12px">Executar aplicação</button>
+        <pre id="log" aria-live="polite"><span class="line">Clique em “Executar aplicação”.</span></pre>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel" style="margin-top:16px">
+    <h2>2. Teste a extensibilidade</h2>
+    <p class="note" style="margin-bottom:12px">Para criar uma nova família, só se escrevem classes novas. O cliente continua intacto.</p>
+    <button class="add" id="add" type="button">Adicionar LinuxFactory</button>
+    <p class="note good" id="addNote" hidden>Adicionadas: LinuxFactory, BotaoLinux, CheckboxLinux. Nenhuma linha de Aplicacao.java foi alterada.</p>
+  </div>
+</div>
+<script src="script.js"></script>
+</body>
+</html>
